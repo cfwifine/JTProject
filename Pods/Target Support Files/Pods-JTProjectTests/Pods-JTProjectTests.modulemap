@@ -1,0 +1,6 @@
+framework module Pods_JTProjectTests {
+  umbrella header "Pods-JTProjectTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
