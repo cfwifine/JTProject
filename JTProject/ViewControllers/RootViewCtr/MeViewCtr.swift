@@ -43,7 +43,7 @@ class MeViewCtr: BaseViewCtr {
             make.edges.equalTo(self.view).inset(UIEdgeInsetsMake(0, 0, 49, 0))
         }
         
-        contentView = CreateControl.createView(frame: .zero, bgColor: .gray)
+        contentView = CreateControl.createView(frame: .zero, bgColor: UIColor(hexColor:"f6f6f6"))
         scrollView.addSubview(contentView)
         contentView.snp.makeConstraints { (make) in
             make.edges.equalTo(scrollView)
@@ -93,6 +93,89 @@ class MeViewCtr: BaseViewCtr {
     private func initSugarHistoryView()-> UIView {
         let histroyView = CreateControl.createView(frame: .zero, bgColor: .white)
         
+        let scrView = UIScrollView(frame: .zero)
+        scrView.backgroundColor = UIColor.clear
+        scrView.contentSize = CGSize(width: kScreenWidth*3, height: 0)
+        scrView.tag = 2001
+        scrView.showsHorizontalScrollIndicator = false
+        scrView.isPagingEnabled = true
+        histroyView.addSubview(scrView)
+        scrView.snp.makeConstraints { (make) in
+            make.edges.equalTo(histroyView)
+        }
+        
+        let cntView = CreateControl.createView(frame: .zero, bgColor: .cyan)
+        cntView.tag = 2002
+        scrView.addSubview(cntView)
+        cntView.snp.makeConstraints { (make) in
+            make.edges.equalTo(scrView)
+            make.height.equalTo(scrView)
+            make.width.equalTo(kScreenWidth*3)
+        }
+        
+        let titles = ["最近一周血糖情况", "最近一个月血糖情况", "最近三个月血糖情况"]
+        let tipTitles = ["偏高", "正常", "偏低"]
+        let tipImgs = ["personalc_05", "personalc_06", "personalc_07"]
+        for i in 0..<3 {
+            let sugarView = CreateControl.createView(frame: .zero, bgColor: .clear)
+            sugarView.tag = 3001+i
+            cntView.addSubview(sugarView)
+            sugarView.snp.makeConstraints({ (make) in
+                make.height.equalTo(cntView)
+                make.width.equalTo(kScreenWidth)
+                make.left.equalTo(CGFloat(i) * kScreenWidth)
+                make.centerY.equalTo(cntView)
+            })
+            
+            let icomImgView = UIImageView(frame: .zero)
+            icomImgView.image = UIImage(named: "personalc_04")
+            sugarView.addSubview(icomImgView)
+            icomImgView.snp.makeConstraints({ (make) in
+                make.left.equalTo(10*pSize)
+                make.top.equalTo(15*pSize)
+            })
+            
+            let titleLabel  = CreateControl.createLabel(frame: .zero, text: titles[i], bgColor: .clear , textColor: UIColor(hexColor: "666666"), font: UIFont.systemFont(ofSize: 13*pFont))
+            sugarView.addSubview(titleLabel)
+            titleLabel.snp.makeConstraints({ (make) in
+                make.left.equalTo(icomImgView.snp.right).offset(6*pSize)
+                make.centerY.equalTo(icomImgView)
+            })
+            
+            for j in 0..<3 {
+                //圆
+                let circleView = CreateControl.createView(frame: CGRect(x: 0, y: 0, width: 70*pSize, height: 70*pSize), bgColor: .orange)
+                circleView.tag = 30001+j
+                sugarView.addSubview(circleView)
+                circleView.snp.makeConstraints({ (make) in
+                    make.size.equalTo(CGSize(width: 70*pSize, height: 70*pSize))
+                    make.centerY.equalTo(sugarView)
+                    if j == 0 {
+                        make.right.equalTo(sugarView.snp.centerX).offset(-(37+35)*pSize)
+                    }else if j == 1 {
+                        make.centerX.equalTo(sugarView)
+                    }else if j == 2 {
+                        make.left.equalTo(sugarView.snp.centerX).offset((37+35)*pSize)
+                    }
+                })
+                
+                //指示label
+                let tipLabel = CreateControl.createLabel(frame: .zero, text: tipTitles[j], bgColor: .clear, textColor: UIColor(hexColor: "000000"), font: UIFont.systemFont(ofSize: 13*pFont))
+                sugarView.addSubview(tipLabel)
+                tipLabel.snp.makeConstraints({ (make) in
+                    make.left.equalTo(circleView.snp.centerX).offset(-5)
+                    make.bottom.equalTo(sugarView).offset(-15*pSize)
+                })
+                
+                let tipImg = UIImageView(frame: .zero)
+                tipImg.image = UIImage(named: tipImgs[j])
+                sugarView.addSubview(tipImg)
+                tipImg.snp.makeConstraints({ (make) in
+                    make.centerY.equalTo(tipLabel)
+                    make.right.equalTo(tipLabel.snp.left).offset(-6*pSize)
+                })
+            }
+        }
         
         return histroyView
     }
@@ -106,7 +189,7 @@ class MeViewCtr: BaseViewCtr {
         for i in 0..<8 {
             let button = CreateControl.createButton(frame: .zero)
             button.addTarget(self, action: #selector(moduleViewClicked(sender:)), for: .touchUpInside)
-            button.backgroundColor = UIColor.orange
+            button.backgroundColor = UIColor.clear
             moduleView.addSubview(button)
             button.snp.makeConstraints({ (make) in
                 make.width.height.equalTo(80*pSize)
