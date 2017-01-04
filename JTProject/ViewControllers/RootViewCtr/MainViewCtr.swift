@@ -22,7 +22,7 @@ class MainViewCtr: BaseViewCtr {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.cyan
-        self.title = "首页"
+        self.tabBarController?.navigationItem.title = "首页"
         
         self.initHeaderView()
         self.initTableView()

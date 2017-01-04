@@ -21,6 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window?.rootViewController = rootViewCtr
         
+        
+        //全局session赋值
+        let loginObj = LoginUserObj().getUserObj()
+        
+        GlobalVar.sharedInfo.sessionID       = loginObj.sessionID
+        GlobalVar.sharedInfo.sessionMemberID = loginObj.sessionMemberID
+        GlobalVar.sharedInfo.memberID        = loginObj.memberID
+        
         return true
     }
 

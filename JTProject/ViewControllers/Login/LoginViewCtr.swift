@@ -255,11 +255,8 @@ extension LoginViewCtr {
     override func requestSuccess(key: String, data: [String : Any]) {
         super.requestSuccess(key: key, data: data)
         //保存数据
-        let sessionMemberID = data["sessionMemberID"] as! String? ?? ""
-        let sessionID = data["sessionID"] as! String? ?? ""
-        GlobalVar.sharedInfo.sessionMemberID = sessionMemberID
-        GlobalVar.sharedInfo.sessionID = sessionID
-        GlobalVar.sharedInfo.saveValueToPlist(param: ["sessionMemberID":sessionMemberID,"sessionID":sessionID])
+        LoginUserObj().operationData(data: data)
+        
         self.dismiss(animated: true, completion: {
             self.shouldPresent = true
         })

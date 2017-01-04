@@ -17,12 +17,13 @@ class DoctorViewCtr: BaseViewCtr {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
-        self.title = "医生"
+        self.tabBarController?.navigationItem.title = "医生"
         
         let webView = UIWebView(frame: self.view.bounds)
         let request = URLRequest(url: NSURL(string: "http://www.baidu.com") as! URL)
         webView.loadRequest(request)
         self.view.addSubview(webView)
+        
     }
 }
 

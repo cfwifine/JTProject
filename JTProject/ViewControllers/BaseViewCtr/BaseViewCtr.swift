@@ -30,16 +30,16 @@ extension BaseViewCtr: CFRequestProtocol {
     func requestSuccess(key: String, data: [String : Any]) {
         code = (data["res_msg"] as! Dictionary<String,String>)["res_code"]
         desc = (data["res_msg"] as! Dictionary<String,String>)["res_desc"]
-//        if code=="200000" { //重新登录
-//            if !shouldPresent {
-//                return
-//            }
-//            shouldPresent = false
-//            let loginCtr = LoginViewCtr()
-//            self.present(loginCtr, animated: true, completion: nil)
-//            BannerView().show(des: desc)
-//            return
-//        }
+        if code=="200000" { //重新登录
+            if !shouldPresent {
+                return
+            }
+            shouldPresent = false
+            let loginCtr = LoginViewCtr()
+            self.present(loginCtr, animated: true, completion: nil)
+            BannerView().show(des: desc)
+            return
+        }
         
         if !(code == "0000") {
             BannerView().show(des: desc)

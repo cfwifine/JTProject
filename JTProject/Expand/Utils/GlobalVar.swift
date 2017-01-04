@@ -17,20 +17,11 @@ class GlobalVar {
     
     var sessionID: String?
     var sessionMemberID: String?
+    var memberID: String?
+    
     static let sharedInfo = GlobalVar()
     //初始化一些值
     private init() {
         
-    }
-    
-    func saveValueToPlist(param: Dictionary<String, Any>) {
-        for (key, value) in param {
-            SaveData.saveToDefault(key: key, data: value)
-        }
-    }
-    
-    func readValueFromPlist(key: String) -> Any {
-        let data = SaveData.getDataFromDefault(key: key)
-        return data
     }
 }

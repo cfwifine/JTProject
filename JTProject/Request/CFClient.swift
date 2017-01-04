@@ -63,18 +63,20 @@ class CFClient {
 
 extension CFClient: CFRequestDelegate {
     func requestSuccess(request: CFRequest, key: String, data: [String : Any]) {
+        print("\n##############URL#############\n\(key)"+"\n############ResultData#########\n\(data)")
+        
         //回调成功后从delegates移除
         if let desDlegate = delegates.removeValue(forKey: key){
             (desDlegate as! CFRequestProtocol).requestSuccess(key: key, data: data)
         }
-        print("\n##############URL#############\n\(key)"+"\n############ResultData#########\n\(data)")
     }
     
     func requestFailure(request: CFRequest, key: String, error: Error) {
+        print("\n###############URL#############\n\(key)"+"\nError:###########Error##########\n\(error.localizedDescription)")
+        
         if let desDlegate = delegates.removeValue(forKey: key){
             (desDlegate as! CFRequestProtocol).requestFailure(key: key, error: error)
         }
-        print("\n###############URL#############\n\(key)"+"\nError:###########Error##########\n\(error.localizedDescription)")
     }
 }
 

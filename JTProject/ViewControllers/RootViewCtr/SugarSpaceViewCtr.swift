@@ -17,7 +17,7 @@ class SugarSpaceViewCtr: BaseViewCtr {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.purple
-        self.title = "糖人街"
+        self.tabBarController?.navigationItem.title = "糖人街"
      
 //        
 //        let dic1 = ["name":"James", "age":"30"]
