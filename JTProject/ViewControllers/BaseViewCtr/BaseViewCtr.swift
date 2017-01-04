@@ -30,7 +30,7 @@ extension BaseViewCtr: CFRequestProtocol {
     func requestSuccess(key: String, data: [String : Any]) {
         code = (data["res_msg"] as! Dictionary<String,String>)["res_code"]
         desc = (data["res_msg"] as! Dictionary<String,String>)["res_desc"]
-        if code=="200000" { //重新登录
+        if code == "200000" { //重新登录
             if !shouldPresent {
                 return
             }
@@ -41,7 +41,7 @@ extension BaseViewCtr: CFRequestProtocol {
             return
         }
         
-        if !(code == "0000") {
+        if code != "0000" {
             BannerView().show(des: desc)
             return
         }

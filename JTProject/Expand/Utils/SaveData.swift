@@ -26,7 +26,7 @@ extension SaveData {
         var result = Dictionary<String, Any>()
         for (_, key) in keys.enumerated() {
             let value = defaults.value(forKey: key)
-            print("value::::::\(value)")
+            print("value::::::\(value), key:::::\(key)")
             result[key] = value
         }
         return result

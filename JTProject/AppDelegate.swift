@@ -17,17 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.makeKeyAndVisible()
-        
-        self.window?.rootViewController = rootViewCtr
-        
         
         //全局session赋值
         let loginObj = LoginUserObj().getUserObj()
-        
         GlobalVar.sharedInfo.sessionID       = loginObj.sessionID
         GlobalVar.sharedInfo.sessionMemberID = loginObj.sessionMemberID
         GlobalVar.sharedInfo.memberID        = loginObj.memberID
+        
+        self.window?.rootViewController = rootViewCtr
+        self.window?.makeKeyAndVisible()
         
         return true
     }
