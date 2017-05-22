@@ -22,8 +22,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GlobalVar.sharedInfo.sessionID       = values["sessionID"] as! String?
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
+<<<<<<< HEAD
         self.window?.makeKeyAndVisible()
         self.window?.rootViewController = rootViewCtr
+=======
+        
+        //全局session赋值
+        let loginObj = LoginUserObj().getUserObj()
+        GlobalVar.sharedInfo.sessionID       = loginObj.sessionID
+        GlobalVar.sharedInfo.sessionMemberID = loginObj.sessionMemberID
+        GlobalVar.sharedInfo.memberID        = loginObj.memberID
+        
+        self.window?.rootViewController = rootViewCtr
+        self.window?.makeKeyAndVisible()
+        
+>>>>>>> f98437913bb009e970cc3720ace378d03c6c8bc9
         return true
     }
 

@@ -40,8 +40,8 @@ class CFRequest {
                 if let data = response.result.value {
                     self.cancelRequest(key: url)
                     self.protocolSendData(data: data, key: url, success: true)
-//                    let utfText = String(data: response.data!, encoding: .utf8)
-//                    print("\n>>>>>>>>>>>>>>>>>>utfText>>>>>>>>>>>>>>>\n\(utfText)")
+                    let utfText = String(data: response.data!, encoding: .utf8)
+                    print("\n>>>>>>>>>>>>>>>>>>utfText>>>>>>>>>>>>>>>\n\(utfText)")
                 }
             })
             request = postRequest

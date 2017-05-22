@@ -17,7 +17,6 @@ class TabBarViewCtr: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.initUI()
     }
     

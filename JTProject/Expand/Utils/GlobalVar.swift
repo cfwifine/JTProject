@@ -17,11 +17,14 @@ class GlobalVar {
     
     var sessionID: String?
     var sessionMemberID: String?
+    var memberID: String?
+    
     static let sharedInfo = GlobalVar()
     //初始化一些值
     private init() {
         
     }
+<<<<<<< HEAD
     
     func saveValueToPlist(param: Dictionary<String, Any>) {
         for (key, value) in param {
@@ -37,4 +40,6 @@ class GlobalVar {
         }
         return resultDict
     }
+=======
+>>>>>>> f98437913bb009e970cc3720ace378d03c6c8bc9
 }

@@ -22,8 +22,14 @@ class MeViewCtr: BaseViewCtr {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+<<<<<<< HEAD
         self.view.backgroundColor = UIColor.green
     
+=======
+        self.view.backgroundColor = UIColor.white
+        self.tabBarController?.navigationItem.title = "个人中心"
+        
+>>>>>>> f98437913bb009e970cc3720ace378d03c6c8bc9
         self.initUI()
     }
     
@@ -79,19 +85,58 @@ class MeViewCtr: BaseViewCtr {
     }
     
     private func initUserInfoView()-> UIView {
-        let infoView = CreateControl.createView(frame: .zero, bgColor: .white)
+        let infoView = CreateControl.createView(frame: .zero, bgColor: UIColor(hexColor: "30c29d"))
         
         let headImgView = UIImageView(frame: .zero)
+        CreateControl.createCorneRadius(view: headImgView, radius: 25*pSize, borderWidth: 2*pSize, borderColor: UIColor(hexColor: "30c29d", alpha: 0.5))
         headImgView.image = UIImage(named: "personalc_35")
         headImgView.tag = 1001
         infoView.addSubview(headImgView)
         headImgView.snp.makeConstraints { (make) in
-            make.top.equalTo(15*pSize)
+            make.top.equalTo(13*pSize)
             make.left.equalTo(10*pSize)
+            make.size.equalTo(CGSize(width: 50*pSize, height: 50*pSize))
         }
         
-        return infoView
+        let button = CreateControl.createButton(frame: .zero, title: "", bgColor: .clear)
+        button.addTarget(self, action: #selector(infoViewClicked(sender:)), for: .touchUpInside)
+        headImgView.addSubview(button)
+        button.snp.makeConstraints { (make) in
+            make.edges.equalTo(headImgView)
+        }
         
+        let uname = CreateControl.createLabel(frame: .zero, text: "阿姿猫", bgColor: .clear, textColor: .white, font: UIFont.systemFont(ofSize: 16*pFont))
+        uname.tag =  1002
+        infoView.addSubview(uname)
+        uname.snp.makeConstraints { (make) in
+            make.left.equalTo(headImgView.snp.right).offset(13*pSize)
+            make.top.equalTo(17*pSize)
+        }
+        
+        let cuname = CreateControl.createLabel(frame: .zero, text: "当前成员:", bgColor: .clear, textColor: .white, font: UIFont.systemFont(ofSize: 14*pFont))
+        cuname.tag = 1003
+        infoView.addSubview(cuname)
+        cuname.snp.makeConstraints { (make) in
+            make.left.equalTo(uname)
+            make.top.equalTo(uname.snp.bottom).offset(13*pSize)
+        }
+        
+        let line = CreateControl.createLabel(frame: .zero, text: "", bgColor: UIColor(hexColor: "e3e3e3"))
+        infoView.addSubview(line)
+        line.snp.makeConstraints { (make) in
+            make.left.equalTo(10*pSize)
+            make.right.equalTo(-10*pSize)
+            make.height.equalTo(0.5)
+            make.bottom.equalTo(-40*pSize)
+        }
+        
+        let countLabel = CreateControl.createLabel(frame: .zero, text: "账户余额:", bgColor: .clear, textColor: .white, font: UIFont.systemFont(ofSize: 14*pFont))
+        infoView.addSubview(countLabel)
+        countLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(10*pSize)
+            make.centerY.equalTo(infoView.snp.bottom).offset(-20*pSize)
+        }
+        return infoView
     }
     
     private func initSugarHistoryView()-> UIView {
@@ -108,7 +153,7 @@ class MeViewCtr: BaseViewCtr {
             make.edges.equalTo(histroyView)
         }
         
-        let cntView = CreateControl.createView(frame: .zero, bgColor: .cyan)
+        let cntView = CreateControl.createView(frame: .zero, bgColor: .clear)
         cntView.tag = 2002
         scrView.addSubview(cntView)
         cntView.snp.makeConstraints { (make) in
@@ -229,12 +274,18 @@ class MeViewCtr: BaseViewCtr {
     }
 }
 
+//MARK: ///事件和代理方法
 extension MeViewCtr {
     @objc fileprivate func infoViewClicked(sender: UIButton) {}
     
     @objc fileprivate func historyViewClicked(sender: UIButton) {}
     
     @objc fileprivate func moduleViewClicked(sender: UIButton) {}
+}
+
+//MARK: ///网络请求
+extension MeViewCtr {
+    
 }
 
 

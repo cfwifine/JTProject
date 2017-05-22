@@ -36,7 +36,6 @@ class CFClient {
         let dc = cal.dateComponents([.year,.month,.day,.hour,.minute,.second], from: now)
         let value = arc4random()%1000000
         let req_num = "\(dc.year)\(dc.month)\(dc.day)\(dc.hour)\(dc.minute)\(dc.second)\(value)"
-        
         let valid = req_num+"comveeiPhone"
         
         var parameters:Dictionary<String, Any> = [
@@ -44,13 +43,22 @@ class CFClient {
             "join_id"        : "comveeiPhone",
             "loadFrom"       : loadForm,
             "req_num"        : req_num,
-            "sessionID"      : GlobalVar.sharedInfo.sessionID ?? "",
-            "sessionMemberID": GlobalVar.sharedInfo.sessionMemberID ?? "",
+//                        "sessionID"      : GlobalVar.sharedInfo.sessionID!,
+//                        "sessionMemberID": GlobalVar.sharedInfo.sessionMemberID!,
+            "sessionID"      : "0833e0d18f4f417e45811824e570018f",
+            "sessionMemberID": "0833e0d18f4f417e0b06905d7fa08459",
             "sys"            : systerm,
             "ver"            : version,
             "dev"            : uuid,
             "valid"          : valid.md5()
         ]
+ 
+//        if let sessionID = GlobalVar.sharedInfo.sessionID {
+//            parameters.updateValue(sessionID, forKey: "sessionID")
+//        }
+//        if let sessionMemberID = GlobalVar.sharedInfo.sessionMemberID {
+//            parameters.updateValue(sessionMemberID, forKey: "sessionMemberID")
+//        }
         
         if let addParams = desParam {
             for (key, value) in addParams {
@@ -63,20 +71,26 @@ class CFClient {
 
 extension CFClient: CFRequestDelegate {
     func requestSuccess(request: CFRequest, key: String, data: [String : Any]) {
+//        print("\n##############URL#############\n\(key)"+"\n############ResultData#########\n\(data)")
+        
         //回调成功后从delegates移除
         if let desDlegate = delegates.removeValue(forKey: key){
             (desDlegate as! CFRequestProtocol).requestSuccess(key: key, data: data)
         }
+<<<<<<< HEAD
         print("\n##############URL#############\n\(key)"+"\n############ResultData#########\n\(data)")
         
 //        print("\n##############URL#############\n\(key)"+"\n############ResultJSonString#########\n\(self.toJSONString(dict: data))")
+=======
+>>>>>>> f98437913bb009e970cc3720ace378d03c6c8bc9
     }
     
     func requestFailure(request: CFRequest, key: String, error: Error) {
+//        print("\n###############URL#############\n\(key)"+"\nError:###########Error##########\n\(error.localizedDescription)")
+        
         if let desDlegate = delegates.removeValue(forKey: key){
             (desDlegate as! CFRequestProtocol).requestFailure(key: key, error: error)
         }
-        print("\n###############URL#############\n\(key)"+"\nError:###########Error##########\n\(error.localizedDescription)")
     }
     
     func toJSONString(dict:Dictionary<String, Any>)->NSString{
