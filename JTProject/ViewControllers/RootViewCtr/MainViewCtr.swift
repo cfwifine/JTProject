@@ -14,23 +14,28 @@ import UIKit
 import SnapKit
 
 class MainViewCtr: BaseViewCtr {
-    static let recomendCellID = "RecomendCell"
-    static let marketCellID = "marketCellID"
-    var tableView: UITableView!
-    var headerView: UIView!
+    fileprivate static let recomendCellID = "RecomendCell"
+    fileprivate static let marketCellID = "marketCellID"
+    fileprivate var tableView: UITableView!
+    fileprivate var headerView: UIView!
+    
+    fileprivate var recmendDict = Dictionary<String, Any>()
+    fileprivate var sugarDict = Dictionary<String, Any>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.cyan
-        self.title = "首页"
         
         self.initHeaderView()
         self.initTableView()
+        
+        self.requestRecomendPaper(row: 10, page: 1)
+        self.requestSugarData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.requestRecomendPaper(row: 10, page: 1)
-        self.requestSugarData()
+        super.viewWillAppear(animated)
+        self.tabBarController?.title = "首页"
     }
     
     public func getInfo() {
@@ -83,7 +88,12 @@ extension MainViewCtr: UITableViewDataSource, UITableViewDelegate {
         if section==0 {
             return 1
         }else {
-            return 30
+            let dataArr = recmendDict["rows"] as? Array<Any>
+            if let _ = dataArr {
+                return dataArr!.count
+            }else {
+                return 0
+            }
         }
     }
     
@@ -93,6 +103,11 @@ extension MainViewCtr: UITableViewDataSource, UITableViewDelegate {
             cell = tableView.dequeueReusableCell(withIdentifier: MainViewCtr.marketCellID)
         }else {
             cell = tableView.dequeueReusableCell(withIdentifier: MainViewCtr.recomendCellID)
+            let dataArr = recmendDict["rows"]
+            let dataDict = (dataArr as? Array<Any>)?[indexPath.row]
+            if let dict = dataDict {
+                (cell as! RecomendCell).data = (dict as? Dictionary<String, Any>)!
+            }
         }
         cell.selectionStyle = .none
         return cell!
@@ -120,10 +135,12 @@ extension MainViewCtr {
     
     override func requestSuccess(key: String, data: [String : Any]) {
         super.requestSuccess(key: key, data: data)
+        if self.code != "0000" {return}
         if key == sugarUrl {
             
         }else if key == recomendUrl {
-        
+            recmendDict = (data["body"] as! [String: Any])
+            tableView.reloadData()
         }
     }
 }

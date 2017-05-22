@@ -29,8 +29,12 @@ class GlobalVar {
         }
     }
     
-    func readValueFromPlist(key: String) -> Any {
-        let data = SaveData.getDataFromDefault(key: key)
-        return data
+    func readValueFromPlist(keys: Array<String>) -> Dictionary<String, Any> {
+        var resultDict = Dictionary<String, Any>()
+        for key in keys {
+            let data = SaveData.getDataFromDefault(key: key)
+            resultDict[key] = data
+        }
+        return resultDict
     }
 }

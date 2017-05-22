@@ -16,11 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        let values = GlobalVar.sharedInfo.readValueFromPlist(keys: ["sessionMemberID","sessionID"])
+        GlobalVar.sharedInfo.sessionMemberID = values["sessionMemberID"] as! String?
+        GlobalVar.sharedInfo.sessionID       = values["sessionID"] as! String?
+        
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.makeKeyAndVisible()
-        
         self.window?.rootViewController = rootViewCtr
-        
         return true
     }
 

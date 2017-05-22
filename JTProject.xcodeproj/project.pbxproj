@@ -203,6 +203,7 @@
 		79E1D4481E0D77FC00415DD5 /* guide_02@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79E1D4381E0D77FC00415DD5 /* guide_02@3x.png */; };
 		79E1D4491E0D77FC00415DD5 /* guide_03@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79E1D4391E0D77FC00415DD5 /* guide_03@3x.png */; };
 		79E1D44A1E0D77FC00415DD5 /* guide_04@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79E1D43A1E0D77FC00415DD5 /* guide_04@3x.png */; };
+		79F752471E8F5C9300A27EC2 /* ProtocolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F752461E8F5C9300A27EC2 /* ProtocolTest.swift */; };
 		79FB89011E0B6D1000F84B82 /* CFRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FB89001E0B6D1000F84B82 /* CFRequest.swift */; };
 		79FB890D1E0BBF5D00F84B82 /* UrlConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FB890C1E0BBF5D00F84B82 /* UrlConstant.swift */; };
 		79FB890F1E0BBFEA00F84B82 /* DefaultValueConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FB890E1E0BBFEA00F84B82 /* DefaultValueConstant.swift */; };
@@ -431,6 +432,8 @@
 		79E1D4381E0D77FC00415DD5 /* guide_02@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guide_02@3x.png"; sourceTree = "<group>"; };
 		79E1D4391E0D77FC00415DD5 /* guide_03@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guide_03@3x.png"; sourceTree = "<group>"; };
 		79E1D43A1E0D77FC00415DD5 /* guide_04@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guide_04@3x.png"; sourceTree = "<group>"; };
+		79F752461E8F5C9300A27EC2 /* ProtocolTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolTest.swift; sourceTree = "<group>"; };
+		79F752481E8F990700A27EC2 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		79FB89001E0B6D1000F84B82 /* CFRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFRequest.swift; sourceTree = "<group>"; };
 		79FB890C1E0BBF5D00F84B82 /* UrlConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlConstant.swift; sourceTree = "<group>"; };
 		79FB890E1E0BBFEA00F84B82 /* DefaultValueConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultValueConstant.swift; sourceTree = "<group>"; };
@@ -520,6 +523,7 @@
 		7901DBF01E0AB265002FE169 /* JTProject */ = {
 			isa = PBXGroup;
 			children = (
+				79F752461E8F5C9300A27EC2 /* ProtocolTest.swift */,
 				7901DBF11E0AB265002FE169 /* AppDelegate.swift */,
 				79FF1CA61E13BEF1003268C4 /* Venders */,
 				79FB89081E0BBEB400F84B82 /* Expand */,
@@ -529,6 +533,7 @@
 				7901DC1F1E0AB2AA002FE169 /* Resource */,
 				7901DBFD1E0AB265002FE169 /* Info.plist */,
 				792DAFFB1E12BDFC00F0CBA0 /* JTProject-Bridging-Header.h */,
+				79F752481E8F990700A27EC2 /* PrefixHeader.pch */,
 			);
 			path = JTProject;
 			sourceTree = "<group>";
@@ -1438,6 +1443,7 @@
 				7901DC5D1E0AB812002FE169 /* LoginViewCtr.swift in Sources */,
 				7901DC671E0ACEF0002FE169 /* MainViewCtr.swift in Sources */,
 				792DB0021E12C60600F0CBA0 /* DictionaryExtention.swift in Sources */,
+				79F752471E8F5C9300A27EC2 /* ProtocolTest.swift in Sources */,
 				7901DC581E0AB543002FE169 /* BaseViewCtr.swift in Sources */,
 				7912CF601E0CB5C600268DD3 /* CreateControl.swift in Sources */,
 				7901DC6D1E0ACF6D002FE169 /* MeViewCtr.swift in Sources */,
@@ -1586,6 +1592,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 9APYFNX75V;
+				GCC_PREFIX_HEADER = /Users/comv/Documents/MyWorksparce/JTProject/JTProject/PrefixHeader.pch;
 				INFOPLIST_FILE = JTProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.comvee.JTProject;
@@ -1604,6 +1611,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 9APYFNX75V;
+				GCC_PREFIX_HEADER = /Users/comv/Documents/MyWorksparce/JTProject/JTProject/PrefixHeader.pch;
 				INFOPLIST_FILE = JTProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.comvee.JTProject;

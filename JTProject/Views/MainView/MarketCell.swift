@@ -19,6 +19,7 @@ class MarketCell: UITableViewCell {
     var data: Dictionary<String, Any> = Dictionary() {
         didSet {
             ///这里给控件赋值
+            
         }
     }
     

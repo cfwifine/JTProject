@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import Kingfisher
 
 class RecomendCell: UITableViewCell {
     var icomImgView: UIImageView!
     var titleLabel: UILabel!
     var subTitleLabel: UILabel!
     
-    var data = Array<Any>() {
+    var data = Dictionary<String,Any>() {
         didSet {
-            
+            titleLabel.text = data["hot_spot_title"] as! String?
+            subTitleLabel.text = data["abstract_info"] as! String?
+            let url = URL(string: data["photo_url"] as! String)
+            let imageSource = ImageResource(downloadURL:url!)
+            icomImgView.kf.setImage(with: imageSource)
         }
     }
 

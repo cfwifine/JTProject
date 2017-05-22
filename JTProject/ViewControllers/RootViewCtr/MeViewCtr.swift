@@ -23,9 +23,13 @@ class MeViewCtr: BaseViewCtr {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.green
-        self.navigationItem.title = "个人中心"
-        
+    
         self.initUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.title = "个人中心"
     }
     
     private func initUI() {

@@ -41,7 +41,9 @@ extension BaseViewCtr: CFRequestProtocol {
 //            return
 //        }
         
-        if !(code == "0000") {
+        if code != "0000" {
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            delegate.rootViewCtr.switchRootViewToLoginViewCtr()
             BannerView().show(des: desc)
             return
         }

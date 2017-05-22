@@ -254,8 +254,9 @@ extension LoginViewCtr {
     
     override func requestSuccess(key: String, data: [String : Any]) {
         super.requestSuccess(key: key, data: data)
+        if self.code != "0000" {return;}
         //保存数据
-        let sessionMemberID = data["sessionMemberID"] as! String? ?? ""
+        let sessionMemberID = data["sessionMemberID"] as? String ?? ""
         let sessionID = data["sessionID"] as! String? ?? ""
         GlobalVar.sharedInfo.sessionMemberID = sessionMemberID
         GlobalVar.sharedInfo.sessionID = sessionID
@@ -263,5 +264,7 @@ extension LoginViewCtr {
         self.dismiss(animated: true, completion: {
             self.shouldPresent = true
         })
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.rootViewCtr.switchRootViewToTabBarViewCtr()
     }
 }

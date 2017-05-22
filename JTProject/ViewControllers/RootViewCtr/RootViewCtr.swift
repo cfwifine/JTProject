@@ -37,6 +37,13 @@ class RootViewCtr: BaseViewCtr {
             })
             lastButton = button
         }
+        
+        //是否需要重新登录
+        if GlobalVar.sharedInfo.sessionID==nil {
+            self.switchRootViewToLoginViewCtr()
+        }else {
+            self.switchRootViewToTabBarViewCtr()
+        }
     }
     
     @objc private func buttonClicked(sender: UIButton) {
@@ -71,4 +78,13 @@ class RootViewCtr: BaseViewCtr {
         appDelegate.window??.rootViewController = guidViewCtr
     }
     
+    //切到登录页
+    public func switchRootViewToLoginViewCtr() {
+        let loginCtr = LoginViewCtr()
+        let appDelegate = UIApplication.shared.delegate!
+        appDelegate.window??.rootViewController = loginCtr
+
+    }
+    
 }
+

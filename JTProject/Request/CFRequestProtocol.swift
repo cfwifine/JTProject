@@ -12,3 +12,7 @@ protocol CFRequestProtocol {
     func requestSuccess(key: String, data: [String: Any]);
     func requestFailure(key: String, error: Error);
 }
+
+extension CFRequestDelegate {
+    
+}

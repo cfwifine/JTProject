@@ -68,6 +68,8 @@ extension CFClient: CFRequestDelegate {
             (desDlegate as! CFRequestProtocol).requestSuccess(key: key, data: data)
         }
         print("\n##############URL#############\n\(key)"+"\n############ResultData#########\n\(data)")
+        
+//        print("\n##############URL#############\n\(key)"+"\n############ResultJSonString#########\n\(self.toJSONString(dict: data))")
     }
     
     func requestFailure(request: CFRequest, key: String, error: Error) {
@@ -75,6 +77,12 @@ extension CFClient: CFRequestDelegate {
             (desDlegate as! CFRequestProtocol).requestFailure(key: key, error: error)
         }
         print("\n###############URL#############\n\(key)"+"\nError:###########Error##########\n\(error.localizedDescription)")
+    }
+    
+    func toJSONString(dict:Dictionary<String, Any>)->NSString{
+        let data = try?JSONSerialization.data(withJSONObject: dict, options: [])
+        let strJson=NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+        return strJson!
     }
 }
 
