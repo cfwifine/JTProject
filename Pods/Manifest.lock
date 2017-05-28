@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.2.0)
+  - EasyTipView (1.0.2)
   - Kingfisher (3.2.1)
   - SnapKit (3.0.2)
   - SQLite.swift (0.11.0):
@@ -9,6 +10,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.2.0)
+  - EasyTipView (~> 1.0.2)
   - Kingfisher (~> 3.2.0)
   - SnapKit (~> 3.0.2)
   - SQLite.swift (~> 0.11.0)
@@ -16,11 +18,12 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  EasyTipView: b93a19be981cc2221d6d7191d49872f547e0bebf
   Kingfisher: 64ef28c6d3d6f344e3ae2d7f5c9da80439505d99
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   SQLite.swift: 9a26273607d3077a2e5a8d33486e9989f8404c7d
   SwiftDate: 0efb04a6751b1ab804049b2b09a69848cd304c12
 
-PODFILE CHECKSUM: 67ed4d0e7ca5075c920251585448c90971324eab
+PODFILE CHECKSUM: 2547ab779bcb690f38fccd32cbd122aa1e6eaa4d
 
 COCOAPODS: 1.2.0.beta.1

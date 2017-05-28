@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>EasyTipView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Kingfisher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,22 +57,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>0D99CD6D7A9FEA27FB67E0109807D86B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>12A00CAEFC768C88ABBA5C53F3642EDE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>12DB1639EE11AC902B25C06B02706C63</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>49D9FF99F6C3F989C9C59886766AB621</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4C01BB80DCAFBF77525EAA571F9DF0AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,12 +72,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8C157A794E63C6F7AC2DAC7EB5270C69</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>90B4956B5DA8CFE54B547D232BF3136A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C4944FEC314D1A66588651D006273ADE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C9305B28A10A7CF8EC92233C04979C3A</key>
+		<key>D342B92B3C8143F2C88C09E74BA6B030</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FFFB21EE35385A92BE88AC3EE01E87DD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

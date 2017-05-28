@@ -10,6 +10,7 @@ target 'JTProject' do
   pod 'Kingfisher', '~> 3.2.0'
   pod 'SwiftDate', '~> 4.0.7'
   pod 'SQLite.swift', '~> 0.11.0'
+  pod 'EasyTipView', '~> 1.0.2'
 
   # Pods for JTProject
 
