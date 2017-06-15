@@ -24,6 +24,8 @@ class DoctorViewCtr: BaseViewCtr {
         webView.loadRequest(request)
         self.view.addSubview(webView)
         
+        let _ = AFError.AFError1.af1One1.description
+        
     }
 }
 

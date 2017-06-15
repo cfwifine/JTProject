@@ -18,10 +18,22 @@ class SugarSpaceViewCtr: BaseViewCtr {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.purple
         self.tabBarController?.navigationItem.title = "糖人街"
-     
-//        
-//        let dic1 = ["name":"James", "age":"30"]
-//        var dic2 = ["address":"America", "work":"NBA"]
-//        dic2+=dic1
+        
     }
+    
+    public enum AFError {
+        public enum AFSubError1 {
+            
+        }
+        
+        public enum AFSubError2 {
+        
+        }
+        
+        public enum AFSubError3 {
+        
+        }
+    }
+    
 }
+
