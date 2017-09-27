@@ -17,6 +17,8 @@ class SplashViewCtr: BaseViewCtr {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.orange
+        
+        
     }
     
     struct rect {

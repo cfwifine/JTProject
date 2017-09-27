@@ -14,22 +14,15 @@ class SaveData: NSObject {
 
 //MARK: ///plist保存
 extension SaveData {
-    class func saveToDefault(data: Dictionary<String, Any>) {
+    class func saveToDefault(key: String, data: Any) {
         let defaults = UserDefaults.standard
-        for (key, value) in data {
-            defaults .setValue(value, forKey: key)
-        }
+        defaults.set(data, forKey: key)
     }
     
-    class func getDataFromDefault(keys: Array<String>) -> Dictionary<String, Any>? {
+    class func getDataFromDefault(key: String) -> Any {
         let defaults = UserDefaults.standard
-        var result = Dictionary<String, Any>()
-        for (_, key) in keys.enumerated() {
-            let value = defaults.value(forKey: key)
-            print("value::::::\(value), key:::::\(key)")
-            result[key] = value
-        }
-        return result
+        let data = defaults.object(forKey: key)
+        return data ?? ""
     }
 }
 

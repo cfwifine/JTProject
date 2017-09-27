@@ -17,20 +17,19 @@ class SugarSpaceViewCtr: BaseViewCtr {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.purple
-<<<<<<< HEAD
         self.tabBarController?.title = "糖人街"
+        
+        let block = {() in
+            print(Thread.current)
+        }
+        DispatchQueue.main.async {
+            block()
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.title = "糖人街"
-=======
-        self.tabBarController?.navigationItem.title = "糖人街"
-     
-//        
-//        let dic1 = ["name":"James", "age":"30"]
-//        var dic2 = ["address":"America", "work":"NBA"]
-//        dic2+=dic1
->>>>>>> f98437913bb009e970cc3720ace378d03c6c8bc9
     }
 }

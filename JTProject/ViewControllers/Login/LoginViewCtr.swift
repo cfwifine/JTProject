@@ -256,16 +256,11 @@ extension LoginViewCtr {
         super.requestSuccess(key: key, data: data)
         if self.code != "0000" {return;}
         //保存数据
-<<<<<<< HEAD
         let sessionMemberID = data["sessionMemberID"] as? String ?? ""
         let sessionID = data["sessionID"] as! String? ?? ""
         GlobalVar.sharedInfo.sessionMemberID = sessionMemberID
         GlobalVar.sharedInfo.sessionID = sessionID
         GlobalVar.sharedInfo.saveValueToPlist(param: ["sessionMemberID":sessionMemberID,"sessionID":sessionID])
-=======
-        LoginUserObj().operationData(data: data)
-        
->>>>>>> f98437913bb009e970cc3720ace378d03c6c8bc9
         self.dismiss(animated: true, completion: {
             self.shouldPresent = true
         })
